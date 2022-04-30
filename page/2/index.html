@@ -270,7 +270,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-12 21:38:14" itemprop="dateModified" datetime="2022-03-12T21:38:14+08:00">2022-03-12</time>
+                <time title="修改时间：2022-04-30 18:37:01" itemprop="dateModified" datetime="2022-04-30T18:37:01+08:00">2022-04-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -298,12 +298,16 @@
 <p>-m（分支，这里指代master分支）</p>
 <p>“type:xxxx”（用于描述本次提交内容；type：自定义规范，xxxx：描述内容）</p>
 <h2 id="type类型-每个团队各有不同"><a href="#type类型-每个团队各有不同" class="headerlink" title="type类型(每个团队各有不同)"></a>type类型(每个团队各有不同)</h2><p>以下是常用的用于标识提交的代码的完成了什么任务的标识类别</p>
-<p><code>feat</code>：新的功能</p>
-<p><code>fix</code>：修复bug</p>
-<p><code>docs</code>：文档</p>
-<p><code>refactor</code>：重构</p>
-<p><code>test</code>：测试</p>
-<p><code>chore</code>：杂务</p>
+<p><code>feat</code> - 新功能 feature</p>
+<p><code>fix</code> - 修复 bug</p>
+<p><code>docs</code> - 文档注释</p>
+<p><code>style</code> - 代码格式(不影响代码运行的变动)</p>
+<p><code>refactor</code> - 重构、优化(既不增加新功能，也不是修复bug)</p>
+<p><code>perf</code> - 性能优化</p>
+<p><code>test</code> - 增加测试</p>
+<p><code>chore</code> - 构建过程或辅助工具的变动</p>
+<p><code>revert</code> - 回退</p>
+<p><code>build</code> - 打包</p>
 
       
     </div>
@@ -354,7 +358,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-20 21:39:40" itemprop="dateModified" datetime="2022-03-20T21:39:40+08:00">2022-03-20</time>
+                <time title="修改时间：2022-04-30 18:48:31" itemprop="dateModified" datetime="2022-04-30T18:48:31+08:00">2022-04-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -389,6 +393,9 @@
 <p>将文件添加到暂存区，<code> .</code> 表示所有文件(注意add后面有个空格)</p>
 <p><code>git commit -m &quot;type:xxxx&quot;</code></p>
 <p>将暂存区的文件提交到本地仓库， -m 表示分支名 master  ; “type:xxxx” 可以用来备注此次的提交完成了什么任务</p>
+<h2 id="4、取消本次添加"><a href="#4、取消本次添加" class="headerlink" title="4、取消本次添加"></a>4、取消本次添加</h2><p>如果发现本次提交，有错误的文件被放在文件暂存区</p>
+<p><code>git checkout</code> </p>
+<p>可以撤销已经添加到暂存区的文件</p>
 <h2 id="4、拉取远程代码到本地，更新本地的代码为最新的远程仓库的代码-多人协作"><a href="#4、拉取远程代码到本地，更新本地的代码为最新的远程仓库的代码-多人协作" class="headerlink" title="4、拉取远程代码到本地，更新本地的代码为最新的远程仓库的代码(多人协作)"></a>4、拉取远程代码到本地，更新本地的代码为最新的远程仓库的代码(多人协作)</h2><p><code>git pull</code></p>
 <p>更新本地代码</p>
 <p>拉取远程要合并到的分支，防止冲突，即提前处理冲突</p>
@@ -398,7 +405,8 @@
 <h1 id="二、如果提交代码遇到冲突，如何解决？"><a href="#二、如果提交代码遇到冲突，如何解决？" class="headerlink" title="二、如果提交代码遇到冲突，如何解决？"></a>二、如果提交代码遇到冲突，如何解决？</h1><h2 id="1、拉取远程仓库代码更新到本地"><a href="#1、拉取远程仓库代码更新到本地" class="headerlink" title="1、拉取远程仓库代码更新到本地"></a>1、拉取远程仓库代码更新到本地</h2><p><code>git pull</code></p>
 <p>拉取最新的代码</p>
 <h2 id="2、有冲突的地方会被标记"><a href="#2、有冲突的地方会被标记" class="headerlink" title="2、有冲突的地方会被标记"></a>2、有冲突的地方会被标记</h2><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD 和&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;以及&gt;&gt;&gt;&gt;&gt;&gt;&gt; master是git对冲突的标记</p>
-<h2 id="3-人为协商，修改，合并代码之后，重新提交"><a href="#3-人为协商，修改，合并代码之后，重新提交" class="headerlink" title="3.人为协商，修改，合并代码之后，重新提交"></a>3.人为协商，修改，合并代码之后，重新提交</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;type:xxxx&quot;</span> </span><br><span class="line">git push </span><br></pre></td></tr></table></figure>
+<h2 id="3-人为协商，修改，合并代码之后，重新提交"><a href="#3-人为协商，修改，合并代码之后，重新提交" class="headerlink" title="3.人为协商，修改，合并代码之后，重新提交"></a>3.人为协商，修改，合并代码之后，重新提交</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;type:xxxx&quot;   </span><br><span class="line">git push </span><br></pre></td></tr></table></figure>
+
 <h1 id="三、回退本地代码到所指定的那个的版本"><a href="#三、回退本地代码到所指定的那个的版本" class="headerlink" title="三、回退本地代码到所指定的那个的版本"></a>三、回退本地代码到所指定的那个的版本</h1><h2 id="1、查看指定的版本号"><a href="#1、查看指定的版本号" class="headerlink" title="1、查看指定的版本号"></a>1、查看指定的版本号</h2><p><code>git log</code></p>
 <p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8d9be4b71984cf8861c84cf162e687c~tplv-k3u1fbpfcp-watermark.image" alt="Image1.png"><br>可以查看所有的提交记录</p>
 <h2 id="2、复制指定的版本的"><a href="#2、复制指定的版本的" class="headerlink" title="2、复制指定的版本的"></a>2、复制指定的版本的</h2><p>commit 后面那一串字符串</p>
@@ -408,6 +416,14 @@
 <p>暂存本地工作区修改了的代码</p>
 <h2 id="2、取出修改"><a href="#2、取出修改" class="headerlink" title="2、取出修改"></a>2、取出修改</h2><p><code>git stash pop</code></p>
 <p>取出修改的代码</p>
+<h1 id="五、查看，创建分支"><a href="#五、查看，创建分支" class="headerlink" title="五、查看，创建分支"></a>五、查看，创建分支</h1><h2 id="1、查看分支"><a href="#1、查看分支" class="headerlink" title="1、查看分支"></a>1、查看分支</h2><p><code>git branch</code></p>
+<p>查看本地分支</p>
+<p><code>git branch -r</code></p>
+<p>查看远程分支</p>
+<p><code>git branch -a</code></p>
+<p>查看所有分支</p>
+<h2 id="2、创建分支"><a href="#2、创建分支" class="headerlink" title="2、创建分支"></a>2、创建分支</h2><p><code>git checkout -b &quot;分支名&quot;</code></p>
+<p>在本地创建分支</p>
 
       
     </div>
