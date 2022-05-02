@@ -164,6 +164,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://alexl0ng.github.io/2022/05/02/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E3%80%8AClean-Code%E3%80%8B-%E7%AC%AC2%E7%AB%A0-%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%91%BD%E5%90%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="AlexL0ng">
+      <meta itemprop="description" content="AlexL0ng's Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="龙佳君的网络日志">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/02/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E3%80%8AClean-Code%E3%80%8B-%E7%AC%AC2%E7%AB%A0-%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%91%BD%E5%90%8D/" class="post-title-link" itemprop="url">读书笔记 -《Clean Code》- 第2章 有意义的命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-02 16:09:40 / 修改时间：16:10:11" itemprop="dateCreated datePublished" datetime="2022-05-02T16:09:40+08:00">2022-05-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="第2章-有意义的命名"><a href="#第2章-有意义的命名" class="headerlink" title="第2章 有意义的命名"></a>第2章 有意义的命名</h1><h2 id="2-2-名副其实"><a href="#2-2-名副其实" class="headerlink" title="2.2 名副其实"></a>2.2 名副其实</h2><p><em><strong>“变量、函数或类的名称应该已经答复了所有的大问题。它该告诉你，它为什么会存在，它做什么事，应该怎么用。如果名称需要注释来补充，那就不算是名副其实”</strong></em><br>问题：那么注释应该是什么情况下写呢？</p>
+<h2 id="2-3-避免误导"><a href="#2-3-避免误导" class="headerlink" title="2.3 避免误导"></a>2.3 避免误导</h2><p><em><strong>“应当避免使用与本意相悖的词。”</strong></em><br><em><strong>“List一词对程序员有特殊意义。如果包纳账号的容器并非真是个List，就会引起错误的判断[3]。所以，用accountGroup或bunchOfAccounts，甚至直接用accounts都会好一些。”</strong></em><br>我确实经常用List来命名一组数据。没有在认真上区分它，仅仅是我想到的相近的词语。</p>
+<h2 id="2-4-做有意义的区分"><a href="#2-4-做有意义的区分" class="headerlink" title="2.4 做有意义的区分"></a>2.4 做有意义的区分</h2><p><em><strong>“ Variable一词永远不应当出现在变量名中。Table一词永远不应当出现在表名中。”</strong></em><br><em><strong>“要区分名称，就要以读者能鉴别不同之处的方式来区分。”</strong></em></p>
+<h2 id="2-6-使用可搜索的名称"><a href="#2-6-使用可搜索的名称" class="headerlink" title="2.6 使用可搜索的名称"></a>2.6 使用可搜索的名称</h2><p><em><strong>“单字母名称和数字常量有个问题，就是很难在一大篇文字中找出来。”</strong></em><br><em><strong>“窃以为单字母名称仅用于短方法中的本地变量。”</strong></em></p>
+<h2 id="2-8-避免映射思维"><a href="#2-8-避免映射思维" class="headerlink" title="2.8 避免映射思维"></a>2.8 避免映射思维</h2><p><em><strong>“专业程序员善用其能，编写其他人能理解的代码。”</strong></em></p>
+<h2 id="2-9-类名"><a href="#2-9-类名" class="headerlink" title="2.9 类名"></a>2.9 类名</h2><p><em><strong>“类名和对象名应该是名词或名词短语，如Customer、WikiPage、Account和AddressParser。避免使用Manager、Processor、Data或Info这样的类名。类名不应当是动词。”</strong></em></p>
+<h2 id="2-10-方法名"><a href="#2-10-方法名" class="headerlink" title="2.10 方法名"></a>2.10 方法名</h2><p><em><strong>“方法名应当是动词或动词短语，如postPayment、deletePage或save。属性访问器、修改器和断言应该根据其值命名，并依Javabean标准[10]加上get、set和is前缀。”</strong></em></p>
+<h2 id="2-12-每个概念对应一个词"><a href="#2-12-每个概念对应一个词" class="headerlink" title="2.12 每个概念对应一个词"></a>2.12 每个概念对应一个词</h2><p><em><strong>“给每个抽象概念选一个词，并且一以贯之。例如，使用fetch、retrieve和get来给在多个类中的同种方法命名。”</strong></em></p>
+<h2 id="2-16-添加有意义的语境"><a href="#2-16-添加有意义的语境" class="headerlink" title="2.16 添加有意义的语境"></a>2.16 添加有意义的语境</h2><p><em><strong>“设想你有名为firstName、lastName、street、houseNumber、city、state和zipcode的变量。当它们搁一块儿的时候，很明确是构成了一个地址。不过，假使只是在某个方法中看见孤零零一个state变量呢？你会理所当然推断那是某个地址的一部分吗？”</strong></em></p>
+<p><em><strong>“可以添加前缀addrFirstName、addrLastName、addrState等，以此提供语境。”</strong></em></p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>读完这一章后，有反思，有困惑。</p>
+<p>反思自己之前的代码的命名不规范，不合理。没有做到书中的有意义的命名区分。学着使用文中的规范来约束自己。</p>
+<p>困惑的是文中写的很理想化，仅仅使用变量名就阐述了代码本身运行的逻辑；无需多余的注释；然而我在论坛上看到很多人这批判不写注释的人；那么这种不写注释的人如何确保自身的命名能够准确表达，而不被批判呢？</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://alexl0ng.github.io/2022/05/02/%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%EF%BC%9F-%E8%8F%9C%E7%8B%97%E7%90%86%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1292,96 +1372,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://alexl0ng.github.io/2022/04/05/%E5%BC%80%E5%8F%91h5%E7%AB%AF%E7%9A%84-%E4%BB%BF%E4%BA%AC%E4%B8%9C-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8F%E5%9D%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="AlexL0ng">
-      <meta itemprop="description" content="AlexL0ng's Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="龙佳君的网络日志">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/05/%E5%BC%80%E5%8F%91h5%E7%AB%AF%E7%9A%84-%E4%BB%BF%E4%BA%AC%E4%B8%9C-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8F%E5%9D%91/" class="post-title-link" itemprop="url">开发h5端的'仿京东'项目遇到的小坑</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-04-05 15:58:28 / 修改时间：17:11:55" itemprop="dateCreated datePublished" datetime="2022-04-05T15:58:28+08:00">2022-04-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="需求说明："><a href="#需求说明：" class="headerlink" title="需求说明："></a>需求说明：</h1><p>当订单商品数量小于或者等于2时，展示所有商品；当数量大于2的时候，只展示两个商品，通过按钮控制来展示所有商品</p>
-<h1 id="不够合理的测试"><a href="#不够合理的测试" class="headerlink" title="不够合理的测试"></a>不够合理的测试</h1><img src="/2022/04/05/%E5%BC%80%E5%8F%91h5%E7%AB%AF%E7%9A%84-%E4%BB%BF%E4%BA%AC%E4%B8%9C-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8F%E5%9D%91/firstTest.gif" class="" title="first test">
-<p>由于本人手动验收测试的时候，不够仔细；写完代码以为成功实现后；并没有发现比较系统化的测试过，产生了bug。<br>如上图所示，咋看之下没有任何的问题。</p>
-<h1 id="发现bug"><a href="#发现bug" class="headerlink" title="发现bug"></a>发现bug</h1><img src="/2022/04/05/%E5%BC%80%E5%8F%91h5%E7%AB%AF%E7%9A%84-%E4%BB%BF%E4%BA%AC%E4%B8%9C-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8F%E5%9D%91/discoverTheBug.gif" class="" title="discover the bug">
-<p>在后面的开发过程中，验收整个模块的时候，发现了这个问题。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//html展示代码</span><br><span class="line">&lt;template v-for=&quot;(item, index) in productList&quot; :key=&quot;item._id&quot;&gt;</span><br><span class="line">&lt;div class=&quot;products_item&quot; v-if=&quot;index &lt;= isShowProducts&quot;&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//功能实现代码</span><br><span class="line">const useOrderExpandEffect = (orderProducts) =&gt; &#123;  </span><br><span class="line">const isShowProducts = ref(2)  </span><br><span class="line">const handleExpand = () =&gt; &#123;   </span><br><span class="line">if (isShowProducts.value !== orderProducts) &#123;      </span><br><span class="line">isShowProducts.value = orderProducts    </span><br><span class="line">&#125; else &#123;      isShowProducts.value = 2    </span><br><span class="line">    &#125;  </span><br><span class="line"> &#125;  </span><br><span class="line">return &#123;    handleExpand,    isShowProducts  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//setup（）调用代码</span><br><span class="line">const orderProducts = Object.keys(productList.value).length</span><br><span class="line">const &#123;  handleExpand,  isShowProducts&#125; = useOrderExpandEffect(orderProducts)</span><br></pre></td></tr></table></figure>
-<h2 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h2><p>看到部分商品展示不正确的时候，我又检查了一遍代码逻辑；发现逻辑上没有问题之后，我便去检查一下productList这个数据在渲染的时候，是否正确获取到了。<br>于是把productList打印出来了。</p>
-<img src="/2022/04/05/%E5%BC%80%E5%8F%91h5%E7%AB%AF%E7%9A%84-%E4%BB%BF%E4%BA%AC%E4%B8%9C-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8F%E5%9D%91/productList.png" class="" title="part of productList">
-<p>发现productList里面的value的key值是3，4，是一个<code>Object</code>；我的代码展示数据部分是循环index in productList，于是我认为这个index获取得到是key值，而不是我想要的索引值，我便去查找Vue的文档关于v-for with an object<br>关于v-for有三个参数<br>example：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;(value, key, index) in myObject&quot;&gt; </span><br><span class="line">&#123;&#123; index &#125;&#125;. &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>由于我个人不喜欢代码有定义的参数没有使用，于是我决定把productList从object转化成array类型来满足我的需求。<br>于是修改为：</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const useOrderExpandEffect = (productList) =&gt; &#123;  </span><br><span class="line">// 将productList的数据类型转化为数组，以保证获取index按照顺序排列  </span><br><span class="line">const productListArr = Object.values(productList.value) </span><br><span class="line">const orderProducts = productListArr.length </span><br><span class="line">const isShowProducts = ref(1)  </span><br><span class="line">const handleExpand = () =&gt; &#123;    </span><br><span class="line">if (isShowProducts.value !== orderProducts) &#123;      </span><br><span class="line">isShowProducts.value = orderProducts    </span><br><span class="line">&#125; else &#123;      isShowProducts.value = 1    &#125; </span><br><span class="line">&#125; </span><br><span class="line">const totalNum = computed(() =&gt; &#123;    </span><br><span class="line">let total = 0    </span><br><span class="line">for (const i of productListArr) </span><br><span class="line">&#123;      total += i.count    &#125;    </span><br><span class="line">return total </span><br><span class="line">&#125;) </span><br><span class="line">return &#123;    handleExpand,    isShowProducts,    productListArr,    totalNum  &#125;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><img src="/2022/04/05/%E5%BC%80%E5%8F%91h5%E7%AB%AF%E7%9A%84-%E4%BB%BF%E4%BA%AC%E4%B8%9C-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8F%E5%9D%91/fixBug.gif" class="" title="fix the bug">
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>造成这个bug没有及时发现以及发生的原因是：</p>
-<ul>
-<li>对于功能测试方案设计不够仔细</li>
-<li>v-for的实现不够理解透彻</li>
-</ul>
-<p>改进：对于功能测试需要设计更加好的测试方案，学习思考一个代码封装下的具体实现过程；才能更好的了解其运行机制。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1451,7 +1441,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

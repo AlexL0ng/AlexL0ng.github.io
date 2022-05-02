@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"alexl0ng.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="为什么要撰写README.md？用户体验README.md文档就像一个产品说明书，我们做的每个项目就是一个产品，用户拿到手中的时候并不清楚如何使用，不了解其组成部分。就像是你买的第一包泡面，泡面包装袋上没有写配料，生产场地，烹调方法。那就只能靠用户自己摸索使用，这对用户体验来说无疑是非常糟糕。 自我梳理编写README.md可以梳理自身对项目的理解，同时也锻炼自己的文档编写能力。 README.m">
+  <meta name="description" content="第2章 有意义的命名2.2 名副其实“变量、函数或类的名称应该已经答复了所有的大问题。它该告诉你，它为什么会存在，它做什么事，应该怎么用。如果名称需要注释来补充，那就不算是名副其实”问题：那么注释应该是什么情况下写呢？ 2.3 避免误导“应当避免使用与本意相悖的词。”“List一词对程序员有特殊意义。如果包纳账号的容器并非真是个List，就会引起错误的判断[3]。所以，用accountGroup或">
 <meta property="og:type" content="article">
-<meta property="og:title" content="README.md的撰写方案">
-<meta property="og:url" content="http://alexl0ng.github.io/2022/04/01/README-md%E7%9A%84%E6%92%B0%E5%86%99%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:title" content="读书笔记 -《Clean Code》- 第2章 有意义的命名">
+<meta property="og:url" content="http://alexl0ng.github.io/2022/05/02/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E3%80%8AClean-Code%E3%80%8B-%E7%AC%AC2%E7%AB%A0-%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%91%BD%E5%90%8D/index.html">
 <meta property="og:site_name" content="龙佳君的网络日志">
-<meta property="og:description" content="为什么要撰写README.md？用户体验README.md文档就像一个产品说明书，我们做的每个项目就是一个产品，用户拿到手中的时候并不清楚如何使用，不了解其组成部分。就像是你买的第一包泡面，泡面包装袋上没有写配料，生产场地，烹调方法。那就只能靠用户自己摸索使用，这对用户体验来说无疑是非常糟糕。 自我梳理编写README.md可以梳理自身对项目的理解，同时也锻炼自己的文档编写能力。 README.m">
+<meta property="og:description" content="第2章 有意义的命名2.2 名副其实“变量、函数或类的名称应该已经答复了所有的大问题。它该告诉你，它为什么会存在，它做什么事，应该怎么用。如果名称需要注释来补充，那就不算是名副其实”问题：那么注释应该是什么情况下写呢？ 2.3 避免误导“应当避免使用与本意相悖的词。”“List一词对程序员有特殊意义。如果包纳账号的容器并非真是个List，就会引起错误的判断[3]。所以，用accountGroup或">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-01T08:06:18.000Z">
-<meta property="article:modified_time" content="2022-04-05T06:16:02.121Z">
+<meta property="article:published_time" content="2022-05-02T08:09:40.000Z">
+<meta property="article:modified_time" content="2022-05-02T08:10:11.345Z">
 <meta property="article:author" content="AlexL0ng">
-<meta property="article:tag" content="github">
+<meta property="article:tag" content="《Clean Code》">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://alexl0ng.github.io/2022/04/01/README-md%E7%9A%84%E6%92%B0%E5%86%99%E6%96%B9%E6%A1%88/">
+<link rel="canonical" href="http://alexl0ng.github.io/2022/05/02/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E3%80%8AClean-Code%E3%80%8B-%E7%AC%AC2%E7%AB%A0-%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%91%BD%E5%90%8D/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>README.md的撰写方案 | 龙佳君的网络日志</title>
+  <title>读书笔记 -《Clean Code》- 第2章 有意义的命名 | 龙佳君的网络日志</title>
   
 
 
@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://alexl0ng.github.io/2022/04/01/README-md%E7%9A%84%E6%92%B0%E5%86%99%E6%96%B9%E6%A1%88/">
+    <link itemprop="mainEntityOfPage" href="http://alexl0ng.github.io/2022/05/02/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E3%80%8AClean-Code%E3%80%8B-%E7%AC%AC2%E7%AB%A0-%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%91%BD%E5%90%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -180,7 +180,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          README.md的撰写方案
+          读书笔记 -《Clean Code》- 第2章 有意义的命名
         </h1>
 
         <div class="post-meta">
@@ -189,23 +189,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-04-01 16:06:18" itemprop="dateCreated datePublished" datetime="2022-04-01T16:06:18+08:00">2022-04-01</time>
+              <time title="创建时间：2022-05-02 16:09:40 / 修改时间：16:10:11" itemprop="dateCreated datePublished" datetime="2022-05-02T16:09:40+08:00">2022-05-02</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-05 14:16:02" itemprop="dateModified" datetime="2022-04-05T14:16:02+08:00">2022-04-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tool/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
                 </span>
             </span>
 
@@ -220,28 +214,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="为什么要撰写README-md？"><a href="#为什么要撰写README-md？" class="headerlink" title="为什么要撰写README.md？"></a>为什么要撰写README.md？</h1><h2 id="用户体验"><a href="#用户体验" class="headerlink" title="用户体验"></a>用户体验</h2><p>README.md文档就像一个产品说明书，我们做的每个项目就是一个产品，用户拿到手中的时候并不清楚如何使用，不了解其组成部分。就像是你买的第一包泡面，泡面包装袋上没有写配料，生产场地，烹调方法。那就只能靠用户自己摸索使用，这对用户体验来说无疑是非常糟糕。</p>
-<h2 id="自我梳理"><a href="#自我梳理" class="headerlink" title="自我梳理"></a>自我梳理</h2><p>编写README.md可以梳理自身对项目的理解，同时也锻炼自己的文档编写能力。</p>
-<h1 id="README-md的编写方案"><a href="#README-md的编写方案" class="headerlink" title="README.md的编写方案"></a>README.md的编写方案</h1><p>参考自：<a target="_blank" rel="noopener" href="https://github.com/ParabolInc/parabol#readme">Parabol</a></p>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>在这里，对你的项目进行简要的概述，附上项目的demo演示图，或者项目展示图也可以。</p>
-<h2 id="Stack-Information"><a href="#Stack-Information" class="headerlink" title="Stack Information"></a>Stack Information</h2><p>技术栈，在这里写下你的项目开发需要的哪些技术信息，类似：</p>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>UI Framework</td>
-<td><a target="_blank" rel="noopener" href="https://facebook.github.io/react/">React</a></td>
-</tr>
-</tbody></table>
-<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h3><p>项目运行的先决必备条件</p>
-<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>安装步骤，以及在本地将项目跑起来代码的执行步骤</p>
-<h3 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h3><p>这里放一些开发过程中记录的文档，规则</p>
-<h3 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h3><p>部署上线的操作命令</p>
-<p>个人首次尝试：<a target="_blank" rel="noopener" href="https://github.com/AlexL0ng/imitation-jingdong#readme">imitation-jingdong</a></p>
+        <h1 id="第2章-有意义的命名"><a href="#第2章-有意义的命名" class="headerlink" title="第2章 有意义的命名"></a>第2章 有意义的命名</h1><h2 id="2-2-名副其实"><a href="#2-2-名副其实" class="headerlink" title="2.2 名副其实"></a>2.2 名副其实</h2><p><em><strong>“变量、函数或类的名称应该已经答复了所有的大问题。它该告诉你，它为什么会存在，它做什么事，应该怎么用。如果名称需要注释来补充，那就不算是名副其实”</strong></em><br>问题：那么注释应该是什么情况下写呢？</p>
+<h2 id="2-3-避免误导"><a href="#2-3-避免误导" class="headerlink" title="2.3 避免误导"></a>2.3 避免误导</h2><p><em><strong>“应当避免使用与本意相悖的词。”</strong></em><br><em><strong>“List一词对程序员有特殊意义。如果包纳账号的容器并非真是个List，就会引起错误的判断[3]。所以，用accountGroup或bunchOfAccounts，甚至直接用accounts都会好一些。”</strong></em><br>我确实经常用List来命名一组数据。没有在认真上区分它，仅仅是我想到的相近的词语。</p>
+<h2 id="2-4-做有意义的区分"><a href="#2-4-做有意义的区分" class="headerlink" title="2.4 做有意义的区分"></a>2.4 做有意义的区分</h2><p><em><strong>“ Variable一词永远不应当出现在变量名中。Table一词永远不应当出现在表名中。”</strong></em><br><em><strong>“要区分名称，就要以读者能鉴别不同之处的方式来区分。”</strong></em></p>
+<h2 id="2-6-使用可搜索的名称"><a href="#2-6-使用可搜索的名称" class="headerlink" title="2.6 使用可搜索的名称"></a>2.6 使用可搜索的名称</h2><p><em><strong>“单字母名称和数字常量有个问题，就是很难在一大篇文字中找出来。”</strong></em><br><em><strong>“窃以为单字母名称仅用于短方法中的本地变量。”</strong></em></p>
+<h2 id="2-8-避免映射思维"><a href="#2-8-避免映射思维" class="headerlink" title="2.8 避免映射思维"></a>2.8 避免映射思维</h2><p><em><strong>“专业程序员善用其能，编写其他人能理解的代码。”</strong></em></p>
+<h2 id="2-9-类名"><a href="#2-9-类名" class="headerlink" title="2.9 类名"></a>2.9 类名</h2><p><em><strong>“类名和对象名应该是名词或名词短语，如Customer、WikiPage、Account和AddressParser。避免使用Manager、Processor、Data或Info这样的类名。类名不应当是动词。”</strong></em></p>
+<h2 id="2-10-方法名"><a href="#2-10-方法名" class="headerlink" title="2.10 方法名"></a>2.10 方法名</h2><p><em><strong>“方法名应当是动词或动词短语，如postPayment、deletePage或save。属性访问器、修改器和断言应该根据其值命名，并依Javabean标准[10]加上get、set和is前缀。”</strong></em></p>
+<h2 id="2-12-每个概念对应一个词"><a href="#2-12-每个概念对应一个词" class="headerlink" title="2.12 每个概念对应一个词"></a>2.12 每个概念对应一个词</h2><p><em><strong>“给每个抽象概念选一个词，并且一以贯之。例如，使用fetch、retrieve和get来给在多个类中的同种方法命名。”</strong></em></p>
+<h2 id="2-16-添加有意义的语境"><a href="#2-16-添加有意义的语境" class="headerlink" title="2.16 添加有意义的语境"></a>2.16 添加有意义的语境</h2><p><em><strong>“设想你有名为firstName、lastName、street、houseNumber、city、state和zipcode的变量。当它们搁一块儿的时候，很明确是构成了一个地址。不过，假使只是在某个方法中看见孤零零一个state变量呢？你会理所当然推断那是某个地址的一部分吗？”</strong></em></p>
+<p><em><strong>“可以添加前缀addrFirstName、addrLastName、addrState等，以此提供语境。”</strong></em></p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>读完这一章后，有反思，有困惑。</p>
+<p>反思自己之前的代码的命名不规范，不合理。没有做到书中的有意义的命名区分。学着使用文中的规范来约束自己。</p>
+<p>困惑的是文中写的很理想化，仅仅使用变量名就阐述了代码本身运行的逻辑；无需多余的注释；然而我在论坛上看到很多人这批判不写注释的人；那么这种不写注释的人如何确保自身的命名能够准确表达，而不被批判呢？</p>
 
     </div>
 
@@ -251,7 +236,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/github/" rel="tag"># github</a>
+              <a href="/tags/%E3%80%8AClean-Code%E3%80%8B/" rel="tag"># 《Clean Code》</a>
           </div>
 
         
@@ -260,13 +245,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/03/20/%E5%AE%B6%E5%B8%B8%E8%8F%9C%E4%B9%8B%E8%9B%8B%E7%82%92%E9%A5%AD/" rel="prev" title="家常菜之蛋炒饭">
-      <i class="fa fa-chevron-left"></i> 家常菜之蛋炒饭
+    <a href="/2022/05/02/%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%EF%BC%9F-%E8%8F%9C%E7%8B%97%E7%90%86%E8%A7%A3/" rel="prev" title="什么是类？- 菜狗理解">
+      <i class="fa fa-chevron-left"></i> 什么是类？- 菜狗理解
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/04/05/%E5%BC%80%E5%8F%91h5%E7%AB%AF%E7%9A%84-%E4%BB%BF%E4%BA%AC%E4%B8%9C-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8F%E5%9D%91/" rel="next" title="开发h5端的'仿京东'项目遇到的小坑">
-      开发h5端的'仿京东'项目遇到的小坑 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -325,7 +307,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%92%B0%E5%86%99README-md%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么要撰写README.md？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C"><span class="nav-number">1.1.</span> <span class="nav-text">用户体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E6%88%91%E6%A2%B3%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">自我梳理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#README-md%E7%9A%84%E7%BC%96%E5%86%99%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">README.md的编写方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">2.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack-Information"><span class="nav-number">2.2.</span> <span class="nav-text">Stack Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup"><span class="nav-number">2.3.</span> <span class="nav-text">Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prerequisites"><span class="nav-number">2.3.1.</span> <span class="nav-text">Prerequisites</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation"><span class="nav-number">2.3.2.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development"><span class="nav-number">2.3.3.</span> <span class="nav-text">Development</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy"><span class="nav-number">2.3.4.</span> <span class="nav-text">Deploy</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%91%BD%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">第2章 有意义的命名</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%90%8D%E5%89%AF%E5%85%B6%E5%AE%9E"><span class="nav-number">1.1.</span> <span class="nav-text">2.2 名副其实</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E9%81%BF%E5%85%8D%E8%AF%AF%E5%AF%BC"><span class="nav-number">1.2.</span> <span class="nav-text">2.3 避免误导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E5%81%9A%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%8C%BA%E5%88%86"><span class="nav-number">1.3.</span> <span class="nav-text">2.4 做有意义的区分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-%E4%BD%BF%E7%94%A8%E5%8F%AF%E6%90%9C%E7%B4%A2%E7%9A%84%E5%90%8D%E7%A7%B0"><span class="nav-number">1.4.</span> <span class="nav-text">2.6 使用可搜索的名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-%E9%81%BF%E5%85%8D%E6%98%A0%E5%B0%84%E6%80%9D%E7%BB%B4"><span class="nav-number">1.5.</span> <span class="nav-text">2.8 避免映射思维</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9-%E7%B1%BB%E5%90%8D"><span class="nav-number">1.6.</span> <span class="nav-text">2.9 类名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-10-%E6%96%B9%E6%B3%95%E5%90%8D"><span class="nav-number">1.7.</span> <span class="nav-text">2.10 方法名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-12-%E6%AF%8F%E4%B8%AA%E6%A6%82%E5%BF%B5%E5%AF%B9%E5%BA%94%E4%B8%80%E4%B8%AA%E8%AF%8D"><span class="nav-number">1.8.</span> <span class="nav-text">2.12 每个概念对应一个词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-16-%E6%B7%BB%E5%8A%A0%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E8%AF%AD%E5%A2%83"><span class="nav-number">1.9.</span> <span class="nav-text">2.16 添加有意义的语境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">2.</span> <span class="nav-text">思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
