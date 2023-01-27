@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alexl0ng.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="为什么要撰写README.md？用户体验README.md文档就像一个产品说明书，我们做的每个项目就是一个产品，用户拿到手中的时候并不清楚如何使用，不了解其组成部分。就像是你买的第一包泡面，泡面包装袋上没有写配料，生产场地，烹调方法。那就只能靠用户自己摸索使用，这对用户体验来说无疑是非常糟糕。 自我梳理编写README.md可以梳理自身对项目的理解，同时也锻炼自己的文档编写能力。 README.m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="README.md的撰写方案">
+<meta property="og:url" content="http://alexl0ng.github.io/2022/04/01/README-md%E7%9A%84%E6%92%B0%E5%86%99%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="龙佳君的网络日志">
+<meta property="og:description" content="为什么要撰写README.md？用户体验README.md文档就像一个产品说明书，我们做的每个项目就是一个产品，用户拿到手中的时候并不清楚如何使用，不了解其组成部分。就像是你买的第一包泡面，泡面包装袋上没有写配料，生产场地，烹调方法。那就只能靠用户自己摸索使用，这对用户体验来说无疑是非常糟糕。 自我梳理编写README.md可以梳理自身对项目的理解，同时也锻炼自己的文档编写能力。 README.m">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-01T08:06:18.000Z">
+<meta property="article:modified_time" content="2023-01-25T10:40:11.148Z">
+<meta property="article:author" content="AlexL0ng">
+<meta property="article:tag" content="github">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://alexl0ng.github.io/2022/04/01/README-md%E7%9A%84%E6%92%B0%E5%86%99%E6%96%B9%E6%A1%88/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://alexl0ng.github.io/2022/04/01/README-md%E7%9A%84%E6%92%B0%E5%86%99%E6%96%B9%E6%A1%88/","path":"2022/04/01/README-md的撰写方案/","title":"README.md的撰写方案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>README.md的撰写方案 | 龙佳君的网络日志</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">龙佳君的网络日志</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">纸上得来总感觉浅，绝知此事要躬行</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%92%B0%E5%86%99README-md%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么要撰写README.md？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C"><span class="nav-number">1.1.</span> <span class="nav-text">用户体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E6%88%91%E6%A2%B3%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">自我梳理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#README-md%E7%9A%84%E7%BC%96%E5%86%99%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">README.md的编写方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">2.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack-Information"><span class="nav-number">2.2.</span> <span class="nav-text">Stack Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup"><span class="nav-number">2.3.</span> <span class="nav-text">Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prerequisites"><span class="nav-number">2.3.1.</span> <span class="nav-text">Prerequisites</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation"><span class="nav-number">2.3.2.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development"><span class="nav-number">2.3.3.</span> <span class="nav-text">Development</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy"><span class="nav-number">2.3.4.</span> <span class="nav-text">Deploy</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">AlexL0ng</p>
+  <div class="site-description" itemprop="description">AlexL0ng's Notes</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://alexl0ng.github.io/2022/04/01/README-md%E7%9A%84%E6%92%B0%E5%86%99%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="AlexL0ng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="龙佳君的网络日志">
+      <meta itemprop="description" content="AlexL0ng's Notes">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="README.md的撰写方案 | 龙佳君的网络日志">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          README.md的撰写方案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-01 16:06:18" itemprop="dateCreated datePublished" datetime="2022-04-01T16:06:18+08:00">2022-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-25 18:40:11" itemprop="dateModified" datetime="2023-01-25T18:40:11+08:00">2023-01-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tool/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="为什么要撰写README-md？"><a href="#为什么要撰写README-md？" class="headerlink" title="为什么要撰写README.md？"></a>为什么要撰写README.md？</h1><h2 id="用户体验"><a href="#用户体验" class="headerlink" title="用户体验"></a>用户体验</h2><p>README.md文档就像一个产品说明书，我们做的每个项目就是一个产品，用户拿到手中的时候并不清楚如何使用，不了解其组成部分。就像是你买的第一包泡面，泡面包装袋上没有写配料，生产场地，烹调方法。那就只能靠用户自己摸索使用，这对用户体验来说无疑是非常糟糕。</p>
+<h2 id="自我梳理"><a href="#自我梳理" class="headerlink" title="自我梳理"></a>自我梳理</h2><p>编写README.md可以梳理自身对项目的理解，同时也锻炼自己的文档编写能力。</p>
+<h1 id="README-md的编写方案"><a href="#README-md的编写方案" class="headerlink" title="README.md的编写方案"></a>README.md的编写方案</h1><p>参考自：<a target="_blank" rel="noopener" href="https://github.com/ParabolInc/parabol#readme">Parabol</a></p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>在这里，对你的项目进行简要的概述，附上项目的demo演示图，或者项目展示图也可以。</p>
+<h2 id="Stack-Information"><a href="#Stack-Information" class="headerlink" title="Stack Information"></a>Stack Information</h2><p>技术栈，在这里写下你的项目开发需要的哪些技术信息，类似：</p>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UI Framework</td>
+<td><a target="_blank" rel="noopener" href="https://facebook.github.io/react/">React</a></td>
+</tr>
+</tbody></table>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h3><p>项目运行的先决必备条件</p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>安装步骤，以及在本地将项目跑起来代码的执行步骤</p>
+<h3 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h3><p>这里放一些开发过程中记录的文档，规则</p>
+<h3 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h3><p>部署上线的操作命令</p>
+<p>个人首次尝试：<a target="_blank" rel="noopener" href="https://github.com/AlexL0ng/imitation-jingdong#readme">imitation-jingdong</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/github/" rel="tag"># github</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/20/%E5%AE%B6%E5%B8%B8%E8%8F%9C%E4%B9%8B%E8%9B%8B%E7%82%92%E9%A5%AD/" rel="prev" title="家常菜之蛋炒饭">
+                  <i class="fa fa-chevron-left"></i> 家常菜之蛋炒饭
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/05/%E5%BC%80%E5%8F%91h5%E7%AB%AF%E7%9A%84-%E4%BB%BF%E4%BA%AC%E4%B8%9C-%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8F%E5%9D%91/" rel="next" title="开发h5端的'仿京东'项目遇到的小坑">
+                  开发h5端的'仿京东'项目遇到的小坑 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlexL0ng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

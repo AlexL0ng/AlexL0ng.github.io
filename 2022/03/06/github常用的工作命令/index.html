@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alexl0ng.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一、 提交代码1、编译通过yarn build 2、查看修改git status 查看有多少处进行了修改 git diff 查看具体修改的代码，比较的是暂存区和工作区的代码。 q退出git diff , d 往下翻页 查看修改可以借助其他工具，更加方便，直观；比如：Sourcetree  3、提交本地修改git add . 将文件添加到暂存区， . 表示所有文件(注意add后面有个空格) git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="github常用的工作命令">
+<meta property="og:url" content="http://alexl0ng.github.io/2022/03/06/github%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="龙佳君的网络日志">
+<meta property="og:description" content="一、 提交代码1、编译通过yarn build 2、查看修改git status 查看有多少处进行了修改 git diff 查看具体修改的代码，比较的是暂存区和工作区的代码。 q退出git diff , d 往下翻页 查看修改可以借助其他工具，更加方便，直观；比如：Sourcetree  3、提交本地修改git add . 将文件添加到暂存区， . 表示所有文件(注意add后面有个空格) git">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fdd9e33410c6496a83c822466c3b9849~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8d9be4b71984cf8861c84cf162e687c~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2022-03-06T07:42:27.000Z">
+<meta property="article:modified_time" content="2023-01-25T10:40:11.150Z">
+<meta property="article:author" content="AlexL0ng">
+<meta property="article:tag" content="github">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fdd9e33410c6496a83c822466c3b9849~tplv-k3u1fbpfcp-watermark.image">
+
+
+<link rel="canonical" href="http://alexl0ng.github.io/2022/03/06/github%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%91%BD%E4%BB%A4/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://alexl0ng.github.io/2022/03/06/github%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%91%BD%E4%BB%A4/","path":"2022/03/06/github常用的工作命令/","title":"github常用的工作命令"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>github常用的工作命令 | 龙佳君的网络日志</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">龙佳君的网络日志</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">纸上得来总感觉浅，绝知此事要躬行</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">一、 提交代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E7%BC%96%E8%AF%91%E9%80%9A%E8%BF%87"><span class="nav-number">1.1.</span> <span class="nav-text">1、编译通过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9"><span class="nav-number">1.2.</span> <span class="nav-text">2、查看修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9"><span class="nav-number">1.3.</span> <span class="nav-text">3、提交本地修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E5%8F%96%E6%B6%88%E6%9C%AC%E6%AC%A1%E6%B7%BB%E5%8A%A0"><span class="nav-number">1.4.</span> <span class="nav-text">4、取消本次添加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%88%B0%E6%9C%AC%E5%9C%B0%EF%BC%8C%E6%9B%B4%E6%96%B0%E6%9C%AC%E5%9C%B0%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%BA%E6%9C%80%E6%96%B0%E7%9A%84%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E4%BB%A3%E7%A0%81-%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C"><span class="nav-number">1.5.</span> <span class="nav-text">4、拉取远程代码到本地，更新本地的代码为最新的远程仓库的代码(多人协作)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E6%8E%A8%E9%80%81%E8%BF%9C%E7%A8%8B"><span class="nav-number">1.6.</span> <span class="nav-text">5、推送远程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%A6%82%E6%9E%9C%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E9%81%87%E5%88%B0%E5%86%B2%E7%AA%81%EF%BC%8C%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">二、如果提交代码遇到冲突，如何解决？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81%E6%9B%B4%E6%96%B0%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="nav-number">2.1.</span> <span class="nav-text">1、拉取远程仓库代码更新到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%9C%89%E5%86%B2%E7%AA%81%E7%9A%84%E5%9C%B0%E6%96%B9%E4%BC%9A%E8%A2%AB%E6%A0%87%E8%AE%B0"><span class="nav-number">2.2.</span> <span class="nav-text">2、有冲突的地方会被标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BA%BA%E4%B8%BA%E5%8D%8F%E5%95%86%EF%BC%8C%E4%BF%AE%E6%94%B9%EF%BC%8C%E5%90%88%E5%B9%B6%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%90%8E%EF%BC%8C%E9%87%8D%E6%96%B0%E6%8F%90%E4%BA%A4"><span class="nav-number">2.3.</span> <span class="nav-text">3.人为协商，修改，合并代码之后，重新提交</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%9B%9E%E9%80%80%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E5%88%B0%E6%89%80%E6%8C%87%E5%AE%9A%E7%9A%84%E9%82%A3%E4%B8%AA%E7%9A%84%E7%89%88%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">三、回退本地代码到所指定的那个的版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E6%9F%A5%E7%9C%8B%E6%8C%87%E5%AE%9A%E7%9A%84%E7%89%88%E6%9C%AC%E5%8F%B7"><span class="nav-number">3.1.</span> <span class="nav-text">1、查看指定的版本号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%A4%8D%E5%88%B6%E6%8C%87%E5%AE%9A%E7%9A%84%E7%89%88%E6%9C%AC%E7%9A%84"><span class="nav-number">3.2.</span> <span class="nav-text">2、复制指定的版本的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E8%BF%9B%E8%A1%8C%E5%9B%9E%E9%80%80"><span class="nav-number">3.3.</span> <span class="nav-text">3、进行回退</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%9A%82%E5%AD%98%E4%BF%AE%E6%94%B9%EF%BC%8C%E5%8F%96%E5%87%BA%E4%BF%AE%E6%94%B9"><span class="nav-number">4.</span> <span class="nav-text">四、暂存修改，取出修改</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E6%9A%82%E5%AD%98%E4%BF%AE%E6%94%B9"><span class="nav-number">4.1.</span> <span class="nav-text">1、暂存修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%8F%96%E5%87%BA%E4%BF%AE%E6%94%B9"><span class="nav-number">4.2.</span> <span class="nav-text">2、取出修改</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%9F%A5%E7%9C%8B%EF%BC%8C%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="nav-number">5.</span> <span class="nav-text">五、查看，创建分支</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF"><span class="nav-number">5.1.</span> <span class="nav-text">1、查看分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="nav-number">5.2.</span> <span class="nav-text">2、创建分支</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">AlexL0ng</p>
+  <div class="site-description" itemprop="description">AlexL0ng's Notes</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://alexl0ng.github.io/2022/03/06/github%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="AlexL0ng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="龙佳君的网络日志">
+      <meta itemprop="description" content="AlexL0ng's Notes">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="github常用的工作命令 | 龙佳君的网络日志">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          github常用的工作命令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-06 15:42:27" itemprop="dateCreated datePublished" datetime="2022-03-06T15:42:27+08:00">2022-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-25 18:40:11" itemprop="dateModified" datetime="2023-01-25T18:40:11+08:00">2023-01-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tool/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="一、-提交代码"><a href="#一、-提交代码" class="headerlink" title="一、 提交代码"></a>一、 提交代码</h1><h2 id="1、编译通过"><a href="#1、编译通过" class="headerlink" title="1、编译通过"></a>1、编译通过</h2><p><code>yarn build</code></p>
+<h2 id="2、查看修改"><a href="#2、查看修改" class="headerlink" title="2、查看修改"></a>2、查看修改</h2><p><code>git status</code></p>
+<p>查看有多少处进行了修改</p>
+<p><code>git diff</code></p>
+<p>查看具体修改的代码，比较的是暂存区和工作区的代码。</p>
+<p>q退出<code>git diff</code> , d 往下翻页</p>
+<p>查看修改可以借助其他工具，更加方便，直观；比如：Sourcetree</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fdd9e33410c6496a83c822466c3b9849~tplv-k3u1fbpfcp-watermark.image" alt="Image.png"></p>
+<h2 id="3、提交本地修改"><a href="#3、提交本地修改" class="headerlink" title="3、提交本地修改"></a>3、提交本地修改</h2><p><code>git add .</code></p>
+<p>将文件添加到暂存区，<code> .</code> 表示所有文件(注意add后面有个空格)</p>
+<p><code>git commit -m &quot;type:xxxx&quot;</code></p>
+<p>将暂存区的文件提交到本地仓库， -m 表示分支名 master  ; “type:xxxx” 可以用来备注此次的提交完成了什么任务</p>
+<h2 id="4、取消本次添加"><a href="#4、取消本次添加" class="headerlink" title="4、取消本次添加"></a>4、取消本次添加</h2><p>如果发现本次提交，有错误的文件被放在文件暂存区</p>
+<p><code>git checkout</code> </p>
+<p>可以撤销已经添加到暂存区的文件</p>
+<h2 id="4、拉取远程代码到本地，更新本地的代码为最新的远程仓库的代码-多人协作"><a href="#4、拉取远程代码到本地，更新本地的代码为最新的远程仓库的代码-多人协作" class="headerlink" title="4、拉取远程代码到本地，更新本地的代码为最新的远程仓库的代码(多人协作)"></a>4、拉取远程代码到本地，更新本地的代码为最新的远程仓库的代码(多人协作)</h2><p><code>git pull</code></p>
+<p>更新本地代码</p>
+<p>拉取远程要合并到的分支，防止冲突，即提前处理冲突</p>
+<p>再次检查，保证代码编译通过运行</p>
+<h2 id="5、推送远程"><a href="#5、推送远程" class="headerlink" title="5、推送远程"></a>5、推送远程</h2><p><code>git push</code></p>
+<p>将本地仓库代码推送到远程仓库</p>
+<h1 id="二、如果提交代码遇到冲突，如何解决？"><a href="#二、如果提交代码遇到冲突，如何解决？" class="headerlink" title="二、如果提交代码遇到冲突，如何解决？"></a>二、如果提交代码遇到冲突，如何解决？</h1><h2 id="1、拉取远程仓库代码更新到本地"><a href="#1、拉取远程仓库代码更新到本地" class="headerlink" title="1、拉取远程仓库代码更新到本地"></a>1、拉取远程仓库代码更新到本地</h2><p><code>git pull</code></p>
+<p>拉取最新的代码</p>
+<h2 id="2、有冲突的地方会被标记"><a href="#2、有冲突的地方会被标记" class="headerlink" title="2、有冲突的地方会被标记"></a>2、有冲突的地方会被标记</h2><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD 和&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;以及&gt;&gt;&gt;&gt;&gt;&gt;&gt; master是git对冲突的标记</p>
+<h2 id="3-人为协商，修改，合并代码之后，重新提交"><a href="#3-人为协商，修改，合并代码之后，重新提交" class="headerlink" title="3.人为协商，修改，合并代码之后，重新提交"></a>3.人为协商，修改，合并代码之后，重新提交</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;type:xxxx&quot;   </span><br><span class="line">git push </span><br></pre></td></tr></table></figure>
+
+<h1 id="三、回退本地代码到所指定的那个的版本"><a href="#三、回退本地代码到所指定的那个的版本" class="headerlink" title="三、回退本地代码到所指定的那个的版本"></a>三、回退本地代码到所指定的那个的版本</h1><h2 id="1、查看指定的版本号"><a href="#1、查看指定的版本号" class="headerlink" title="1、查看指定的版本号"></a>1、查看指定的版本号</h2><p><code>git log</code></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8d9be4b71984cf8861c84cf162e687c~tplv-k3u1fbpfcp-watermark.image" alt="Image1.png"><br>可以查看所有的提交记录</p>
+<h2 id="2、复制指定的版本的"><a href="#2、复制指定的版本的" class="headerlink" title="2、复制指定的版本的"></a>2、复制指定的版本的</h2><p>commit 后面那一串字符串</p>
+<h2 id="3、进行回退"><a href="#3、进行回退" class="headerlink" title="3、进行回退"></a>3、进行回退</h2><p><code>git reset --hard + 版本号</code></p>
+<p>版本号就是那一串字符串</p>
+<h1 id="四、暂存修改，取出修改"><a href="#四、暂存修改，取出修改" class="headerlink" title="四、暂存修改，取出修改"></a>四、暂存修改，取出修改</h1><h2 id="1、暂存修改"><a href="#1、暂存修改" class="headerlink" title="1、暂存修改"></a>1、暂存修改</h2><p><code>git stash</code></p>
+<p>暂存本地工作区修改了的代码</p>
+<h2 id="2、取出修改"><a href="#2、取出修改" class="headerlink" title="2、取出修改"></a>2、取出修改</h2><p><code>git stash pop</code></p>
+<p>取出修改的代码</p>
+<h1 id="五、查看，创建分支"><a href="#五、查看，创建分支" class="headerlink" title="五、查看，创建分支"></a>五、查看，创建分支</h1><h2 id="1、查看分支"><a href="#1、查看分支" class="headerlink" title="1、查看分支"></a>1、查看分支</h2><p><code>git branch</code></p>
+<p>查看本地分支</p>
+<p><code>git branch -r</code></p>
+<p>查看远程分支</p>
+<p><code>git branch -a</code></p>
+<p>查看所有分支</p>
+<h2 id="2、创建分支"><a href="#2、创建分支" class="headerlink" title="2、创建分支"></a>2、创建分支</h2><p><code>git checkout -b &quot;分支名&quot;</code></p>
+<p>在本地创建分支</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/github/" rel="tag"># github</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/28/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8A%E4%BC%A0%E5%8D%9A%E5%AE%A2/" rel="prev" title="第一次上传博客">
+                  <i class="fa fa-chevron-left"></i> 第一次上传博客
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/06/git-commit-message-%E5%B8%B8%E7%94%A8%E8%A7%84%E8%8C%83/" rel="next" title="git commit message 常用规范">
+                  git commit message 常用规范 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlexL0ng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

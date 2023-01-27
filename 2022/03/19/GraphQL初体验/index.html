@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alexl0ng.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一、什么是GraphQL？A query language for your APIGraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL是一门用于API的查询语言，同时也可以用来查询数据在运行时。 官方文档地址：https:&#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GraphQL初体验">
+<meta property="og:url" content="http://alexl0ng.github.io/2022/03/19/GraphQL%E5%88%9D%E4%BD%93%E9%AA%8C/index.html">
+<meta property="og:site_name" content="龙佳君的网络日志">
+<meta property="og:description" content="一、什么是GraphQL？A query language for your APIGraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL是一门用于API的查询语言，同时也可以用来查询数据在运行时。 官方文档地址：https:&#x2F;&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64d08e26c14644ce980d8ee68e0601af~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eecc34cbad3b4a76a88451dfd507af82~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d005111b4bb483e813bdbfcdc61d1a1~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1791d739ee54cdf8a98c23ffacc0d06~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/294b90b8e010428eb8a319f77406136f~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c510b48e24c4d6cbfba57f220768864~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3596b0678704686b007ec25e486b338~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2022-03-19T15:52:18.000Z">
+<meta property="article:modified_time" content="2023-01-25T10:40:11.147Z">
+<meta property="article:author" content="AlexL0ng">
+<meta property="article:tag" content="GraphQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64d08e26c14644ce980d8ee68e0601af~tplv-k3u1fbpfcp-watermark.image">
+
+
+<link rel="canonical" href="http://alexl0ng.github.io/2022/03/19/GraphQL%E5%88%9D%E4%BD%93%E9%AA%8C/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://alexl0ng.github.io/2022/03/19/GraphQL%E5%88%9D%E4%BD%93%E9%AA%8C/","path":"2022/03/19/GraphQL初体验/","title":"GraphQL初体验"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>GraphQL初体验 | 龙佳君的网络日志</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">龙佳君的网络日志</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">纸上得来总感觉浅，绝知此事要躬行</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFGraphQL%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">一、什么是GraphQL？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81GraphQL%E4%BD%93%E9%AA%8C"><span class="nav-number">2.</span> <span class="nav-text">二、GraphQL体验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、创建一个新的项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96-%E5%B9%B6%E5%9C%A8%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E4%B8%8B%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAindex-js%E6%96%87%E4%BB%B6"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.安装依赖,并在项目目录下创建一个index.js文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%AE%9A%E4%B9%89GraphQL-Schema-%E5%B9%B6%E4%BD%BF%E7%94%A8ApolloServer%E8%B7%91%E8%B5%B7%E6%9D%A5"><span class="nav-number">2.0.3.</span> <span class="nav-text">3.定义GraphQL Schema,并使用ApolloServer跑起来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81%E5%9C%A8ApolloServer%E9%87%8C%E4%BD%BF%E7%94%A8Graphql%E6%9F%A5%E8%AF%A2%E4%BD%A0%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、在ApolloServer里使用Graphql查询你的数据</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">AlexL0ng</p>
+  <div class="site-description" itemprop="description">AlexL0ng's Notes</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://alexl0ng.github.io/2022/03/19/GraphQL%E5%88%9D%E4%BD%93%E9%AA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="AlexL0ng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="龙佳君的网络日志">
+      <meta itemprop="description" content="AlexL0ng's Notes">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="GraphQL初体验 | 龙佳君的网络日志">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GraphQL初体验
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-19 23:52:18" itemprop="dateCreated datePublished" datetime="2022-03-19T23:52:18+08:00">2022-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-25 18:40:11" itemprop="dateModified" datetime="2023-01-25T18:40:11+08:00">2023-01-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="一、什么是GraphQL？"><a href="#一、什么是GraphQL？" class="headerlink" title="一、什么是GraphQL？"></a>一、什么是GraphQL？</h2><p><code>A query language for your APIGraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.</code></p>
+<p>GraphQL是一门用于API的查询语言，同时也可以用来查询数据在运行时。</p>
+<p>官方文档地址：<br><a target="_blank" rel="noopener" href="https://graphql.org/">https://graphql.org/</a></p>
+<h2 id="二、GraphQL体验"><a href="#二、GraphQL体验" class="headerlink" title="二、GraphQL体验"></a>二、GraphQL体验</h2><p>GraphQL自带有非常多的库，这里使用<code>GraphQL.js</code>和<code>Apollo Server</code>来简单的搭建一个node.js的web框架。</p>
+<h4 id="1、创建一个新的项目"><a href="#1、创建一个新的项目" class="headerlink" title="1、创建一个新的项目"></a>1、创建一个新的项目</h4><p>1.在你的workspace里新建一个文件夹，然后再终端中打开它；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir graphql</span><br><span class="line">cd graphql</span><br></pre></td></tr></table></figure>
+<p>2.使用一个包管理器来管理你的项目;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn init</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64d08e26c14644ce980d8ee68e0601af~tplv-k3u1fbpfcp-watermark.image" alt="1647706718.png"><br>现在你的目录结构应该是这样的：</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eecc34cbad3b4a76a88451dfd507af82~tplv-k3u1fbpfcp-watermark.image" alt="1647706018.png"></p>
+<h4 id="2-安装依赖-并在项目目录下创建一个index-js文件"><a href="#2-安装依赖-并在项目目录下创建一个index-js文件" class="headerlink" title="2.安装依赖,并在项目目录下创建一个index.js文件"></a>2.安装依赖,并在项目目录下创建一个<code>index.js</code>文件</h4><p>打开终端运行下面的命令来下载<code>apollo-serve</code>和<code>graphql</code>依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add apollo-server graphql</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-定义GraphQL-Schema-并使用ApolloServer跑起来"><a href="#3-定义GraphQL-Schema-并使用ApolloServer跑起来" class="headerlink" title="3.定义GraphQL Schema,并使用ApolloServer跑起来"></a>3.定义GraphQL Schema,并使用ApolloServer跑起来</h4><p>打开<code>index.js</code>文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const &#123;ApolloServer, gql&#125; = require(&#x27;apollo-server&#x27;);</span><br><span class="line">//引入ApolloServer,gql</span><br><span class="line"></span><br><span class="line">const typeDefs = gql`  type Query &#123;    getData : Data  &#125;  type Data &#123;    title: String    main: String  &#125;`;</span><br><span class="line">//定义Schema，type Query是graphql里的特殊类型，定义了每个graphql的查询入口</span><br><span class="line">//type Data（自定义），定义数据里面的title和main以String的类型，在查询的时候，以String类型返回</span><br><span class="line"></span><br><span class="line">const Data = &#123;    title: &#x27;This is a hello world&#x27;,    main: &#x27;Hello World&#x27;,&#125;;</span><br><span class="line">//定义服务器里面的数据内容</span><br><span class="line"></span><br><span class="line">const resolvers = &#123;    Query: &#123;        getData: () =&gt; Data,    &#125;&#125;;</span><br><span class="line">//ApolloServer的解析器，对查询后的结果进行返回和填充</span><br><span class="line"></span><br><span class="line">const server = new ApolloServer(&#123;typeDefs, resolvers&#125;);</span><br><span class="line">server.listen().then((&#123;url&#125;) =&gt; &#123;    console.log(`  Server ready at $&#123;url&#125;`);&#125;);</span><br><span class="line">//ApolloServer调用</span><br></pre></td></tr></table></figure>
+
+<p>保存到<code>index.js</code>后，打开terminal输入<code>node index.js</code>将服务器跑起来。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d005111b4bb483e813bdbfcdc61d1a1~tplv-k3u1fbpfcp-watermark.image" alt="1647706018.png"></p>
+<h4 id="4、在ApolloServer里使用Graphql查询你的数据"><a href="#4、在ApolloServer里使用Graphql查询你的数据" class="headerlink" title="4、在ApolloServer里使用Graphql查询你的数据"></a>4、在ApolloServer里使用Graphql查询你的数据</h4><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1791d739ee54cdf8a98c23ffacc0d06~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p>然后开始查询你的数据，点击<code>Query your server</code><br><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/294b90b8e010428eb8a319f77406136f~tplv-k3u1fbpfcp-watermark.image" alt="1647706034.png"><br>在<code>Operation</code>中，按照GraphQL的语法进行数据查询<code>Data</code>里面的<code>title</code><br>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getData &#123;</span><br><span class="line">    title</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>点击<code>ExampleQuery</code>执行查询</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c510b48e24c4d6cbfba57f220768864~tplv-k3u1fbpfcp-watermark.image" alt="1647706042.png"><br>再查询另外一个数据<code>main</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">getData &#123;</span><br><span class="line">    title</span><br><span class="line">    main</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3596b0678704686b007ec25e486b338~tplv-k3u1fbpfcp-watermark.image" alt="1647706048.png"></p>
+<p>至此，GraphQL初步体验就结束了，你也学会了简单的查询Hello World！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/GraphQL/" rel="tag"># GraphQL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/16/%E5%AE%B6%E5%B8%B8%E8%8F%9C%E4%B9%8B%E8%8A%B1%E6%A4%B0%E8%8F%9C%E6%8A%84%E8%82%89%E7%89%87/" rel="prev" title="家常菜之花椰菜抄肉片">
+                  <i class="fa fa-chevron-left"></i> 家常菜之花椰菜抄肉片
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/20/%E5%AE%B6%E5%B8%B8%E8%8F%9C%E4%B9%8B%E8%9B%8B%E7%82%92%E9%A5%AD/" rel="next" title="家常菜之蛋炒饭">
+                  家常菜之蛋炒饭 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlexL0ng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

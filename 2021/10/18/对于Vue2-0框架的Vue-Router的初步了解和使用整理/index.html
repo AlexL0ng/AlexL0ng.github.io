@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alexl0ng.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Q：什么是前端路由？A：url的变化引起ui的变化url:路径，网址，统一资源定位符 ui:用户所看见的交互页面，用户界面 本质上来说就是检测url的变化，截获url地址，然后解析来匹配路由规则 壹、路由配置首先使用Vue-cil创建一个Vue2.0框架的项目，记得添加Vue Router，这样项目会自动导入生成文件；然后打开目录： 找到’src&#x2F;router&#x2F;index.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对于Vue2-0框架的Vue-Router的初步了解和使用之笔记整理">
+<meta property="og:url" content="http://alexl0ng.github.io/2021/10/18/%E5%AF%B9%E4%BA%8EVue2-0%E6%A1%86%E6%9E%B6%E7%9A%84Vue-Router%E7%9A%84%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="龙佳君的网络日志">
+<meta property="og:description" content="Q：什么是前端路由？A：url的变化引起ui的变化url:路径，网址，统一资源定位符 ui:用户所看见的交互页面，用户界面 本质上来说就是检测url的变化，截获url地址，然后解析来匹配路由规则 壹、路由配置首先使用Vue-cil创建一个Vue2.0框架的项目，记得添加Vue Router，这样项目会自动导入生成文件；然后打开目录： 找到’src&#x2F;router&#x2F;index.js">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f29a85b7dbdb4ddc90f34b158fbb34f0~tplv-k3u1fbpfcp-watermark.image">
+<meta property="article:published_time" content="2021-10-17T20:06:53.000Z">
+<meta property="article:modified_time" content="2023-01-25T10:40:11.179Z">
+<meta property="article:author" content="AlexL0ng">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f29a85b7dbdb4ddc90f34b158fbb34f0~tplv-k3u1fbpfcp-watermark.image">
+
+
+<link rel="canonical" href="http://alexl0ng.github.io/2021/10/18/%E5%AF%B9%E4%BA%8EVue2-0%E6%A1%86%E6%9E%B6%E7%9A%84Vue-Router%E7%9A%84%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%B4%E7%90%86/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://alexl0ng.github.io/2021/10/18/%E5%AF%B9%E4%BA%8EVue2-0%E6%A1%86%E6%9E%B6%E7%9A%84Vue-Router%E7%9A%84%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%B4%E7%90%86/","path":"2021/10/18/对于Vue2-0框架的Vue-Router的初步了解和使用整理/","title":"对于Vue2-0框架的Vue-Router的初步了解和使用之笔记整理"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>对于Vue2-0框架的Vue-Router的初步了解和使用之笔记整理 | 龙佳君的网络日志</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">龙佳君的网络日志</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">纸上得来总感觉浅，绝知此事要躬行</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Q%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">Q：什么是前端路由？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A%EF%BC%9Aurl%E7%9A%84%E5%8F%98%E5%8C%96%E5%BC%95%E8%B5%B7ui%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">A：url的变化引起ui的变化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A3%B9%E3%80%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">壹、路由配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B4%B0%E3%80%81%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC"><span class="nav-number">4.</span> <span class="nav-text">贰、路由跳转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81this-router-push"><span class="nav-number">4.1.</span> <span class="nav-text">1、this.$router.push()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81this-router-replace"><span class="nav-number">4.2.</span> <span class="nav-text">2、this.$router.replace()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81this-router-go-n"><span class="nav-number">4.3.</span> <span class="nav-text">3、this.$router.go(n)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81router-link-to"><span class="nav-number">4.4.</span> <span class="nav-text">4、router-link :to</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%81%E3%80%81%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%82"><span class="nav-number">5.</span> <span class="nav-text">叁、路由传参</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81params"><span class="nav-number">5.1.</span> <span class="nav-text">1、params</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81query"><span class="nav-number">5.2.</span> <span class="nav-text">2、query</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">AlexL0ng</p>
+  <div class="site-description" itemprop="description">AlexL0ng's Notes</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://alexl0ng.github.io/2021/10/18/%E5%AF%B9%E4%BA%8EVue2-0%E6%A1%86%E6%9E%B6%E7%9A%84Vue-Router%E7%9A%84%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="AlexL0ng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="龙佳君的网络日志">
+      <meta itemprop="description" content="AlexL0ng's Notes">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="对于Vue2-0框架的Vue-Router的初步了解和使用之笔记整理 | 龙佳君的网络日志">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          对于Vue2-0框架的Vue-Router的初步了解和使用之笔记整理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-18 04:06:53" itemprop="dateCreated datePublished" datetime="2021-10-18T04:06:53+08:00">2021-10-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-25 18:40:11" itemprop="dateModified" datetime="2023-01-25T18:40:11+08:00">2023-01-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Q：什么是前端路由？"><a href="#Q：什么是前端路由？" class="headerlink" title="Q：什么是前端路由？"></a>Q：什么是前端路由？</h1><h1 id="A：url的变化引起ui的变化"><a href="#A：url的变化引起ui的变化" class="headerlink" title="A：url的变化引起ui的变化"></a>A：url的变化引起ui的变化</h1><p>url:路径，网址，<strong>统一资源定位符</strong></p>
+<p>ui:用户所看见的交互页面，<strong>用户界面</strong></p>
+<p><strong>本质上来说就是检测url的变化，截获url地址，然后解析来匹配路由规则</strong></p>
+<h1 id="壹、路由配置"><a href="#壹、路由配置" class="headerlink" title="壹、路由配置"></a>壹、路由配置</h1><p>首先使用Vue-cil创建一个Vue2.0框架的项目，记得添加Vue Router，这样项目会自动导入生成文件；<br>然后打开目录：</p>
+<p>找到’src&#x2F;router&#x2F;index.js’文件，打开</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f29a85b7dbdb4ddc90f34b158fbb34f0~tplv-k3u1fbpfcp-watermark.image" alt="1646730899.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import xxx from &quot;xx/xx/xxx&quot;</span><br><span class="line">const routes = [&#123;</span><br><span class="line">	path: &quot;&quot;, </span><br><span class="line">  	//路径</span><br><span class="line">	name: &quot;&quot;,</span><br><span class="line">  	//组件名称（可选）</span><br><span class="line">  	component: &quot;&quot;,</span><br><span class="line">  	//组件导入，也就是路径；上面Vue提供的有两种方式</span><br><span class="line">    //一种是在头部导入，里面直接引用；</span><br><span class="line">  	//</span><br><span class="line">	//另一种方法，将不同路由对应的组件分割成不同的代码块，然后当路由被访问的的时候才加载对应组件，更加高效。</span><br><span class="line">    //一般来说，对所有的路由都使用动态导入是个好主意。</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+
+<h1 id="贰、路由跳转"><a href="#贰、路由跳转" class="headerlink" title="贰、路由跳转"></a>贰、路由跳转</h1><h2 id="1、this-router-push"><a href="#1、this-router-push" class="headerlink" title="1、this.$router.push()"></a>1、this.$router.push()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">push</span>(&#123; </span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span> </span><br><span class="line">        <span class="comment">//name: &#x27;home&#x27; </span></span><br><span class="line">        路由配置后二者取其一 </span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+<p>跳转到指定的url路径，并在history栈添加一个记录</p>
+<h2 id="2、this-router-replace"><a href="#2、this-router-replace" class="headerlink" title="2、this.$router.replace()"></a>2、this.$router.replace()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">replace</span>(&#123; </span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span> </span><br><span class="line">        <span class="comment">//同上name </span></span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+<p>直接替换了路径为指定的url路径，但是不会在history栈里面添加记录</p>
+<h2 id="3、this-router-go-n"><a href="#3、this-router-go-n" class="headerlink" title="3、this.$router.go(n)"></a>3、this.$router.go(n)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">go</span>(-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>向前或者向后跳转n个页面，-1相当于跳转到上一个在history栈有记录的页面</p>
+<h2 id="4、router-link-to"><a href="#4、router-link-to" class="headerlink" title="4、router-link :to"></a>4、router-link :to</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link :to=<span class="string">&quot;(path: &#x27;/home&#x27;)&quot;</span> <span class="comment">//同上name</span></span><br></pre></td></tr></table></figure>
+<p>router-link: to把参数传入router.push()并调用</p>
+<h1 id="叁、路由传参"><a href="#叁、路由传参" class="headerlink" title="叁、路由传参"></a>叁、路由传参</h1><p>以this.$router.push()为例</p>
+<h2 id="1、params"><a href="#1、params" class="headerlink" title="1、params"></a>1、params</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="property">push</span> (&#123;   </span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>   </span><br><span class="line">        <span class="attr">params</span>:&#123;   </span><br><span class="line">            <span class="attr">id</span>: <span class="string">&#x27;1&#x27;</span>   </span><br><span class="line">                &#125; </span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+<p>params第一次请求可以传递参数id，但是刷新之后id会消失</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$route</span>.<span class="property">params</span>.<span class="property">id</span></span><br></pre></td></tr></table></figure>
+<p>接收参数</p>
+<h2 id="2、query"><a href="#2、query" class="headerlink" title="2、query"></a>2、query</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="property">push</span> (&#123;   </span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>   </span><br><span class="line">        <span class="attr">query</span>:&#123;   </span><br><span class="line">        <span class="attr">id</span>: <span class="string">&#x27;1&#x27;</span>   </span><br><span class="line">               &#125; </span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+<p>query传递参数id时候，页面路径后面会显示参数，类似?id&#x3D;1,刷新页面后传递的参数不会消失</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$route</span>.<span class="property">query</span>.<span class="property">id</span></span><br></pre></td></tr></table></figure>
+<p>接收参数</p>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>感觉个人对路由的理解还是比较浅显，目前只是停留在会简单使用阶段。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Vue/" rel="tag"># Vue</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/10/18/%E5%B8%B8%E7%94%A8%E7%9A%84webstorm%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="next" title="常用的webstorm快捷键">
+                  常用的webstorm快捷键 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlexL0ng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
