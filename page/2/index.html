@@ -118,7 +118,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -146,6 +146,100 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://alexl0ng.github.io/2022/05/24/Intents-of-discord-js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="AlexL0ng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Along的网络日志">
+      <meta itemprop="description" content="AlexL0ng's Notes">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Along的网络日志">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/24/Intents-of-discord-js/" class="post-title-link" itemprop="url">Intents of discord.js</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-24 15:18:41" itemprop="dateCreated datePublished" datetime="2022-05-24T15:18:41+08:00">2022-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-27 14:55:02" itemprop="dateModified" datetime="2023-01-27T14:55:02+08:00">2023-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Intents"><a href="#Intents" class="headerlink" title="Intents"></a>Intents</h1><p><code>Data structure that makes it easy to calculate intents.</code></p>
+<p><a target="_blank" rel="noopener" href="https://discord.js.org/#/docs/discord.js/stable/class/Intents">官网API</a></p>
+<p><a target="_blank" rel="noopener" href="https://discord.com/developers/docs/topics/gateway#list-of-intents">Intents里面具体行为</a></p>
+<p>在制作一个discord bot的时候，需要先定义bot的初始意图；以用于保证bot的行为在规定范围内。</p>
+<p>如果你需要机器人可以BAN MEMBERS，那么你就需要<br><img src="/2022/05/24/Intents-of-discord-js/1.png" alt="list of intetns"><br><img src="/2022/05/24/Intents-of-discord-js/ban.png" alt="code"></p>
+<p>这样机器人才可以BAN MEMBERS；</p>
+<p>反之如果没有添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Intents.FLAGS.GUILD_BANS</span><br></pre></td></tr></table></figure>
+<p>就算你添加了ban的方法，也不会执行该方法。</p>
+<p><strong>并且在控制台不会看见任何的报错的,未来的discord的API应该会针对这个出一个报错的提示(大概)</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1527,112 +1621,6 @@
 <li>v-for的实现不够理解透彻</li>
 </ul>
 <p>改进：对于功能测试需要设计更加好的测试方案，学习思考一个代码封装下的具体实现过程；才能更好的了解其运行机制。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://alexl0ng.github.io/2022/04/01/README-md%E7%9A%84%E6%92%B0%E5%86%99%E6%96%B9%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="AlexL0ng">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Along的网络日志">
-      <meta itemprop="description" content="AlexL0ng's Notes">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Along的网络日志">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/01/README-md%E7%9A%84%E6%92%B0%E5%86%99%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">README.md的撰写方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-04-01 16:06:18" itemprop="dateCreated datePublished" datetime="2022-04-01T16:06:18+08:00">2022-04-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-25 18:40:11" itemprop="dateModified" datetime="2023-01-25T18:40:11+08:00">2023-01-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/tool/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="为什么要撰写README-md？"><a href="#为什么要撰写README-md？" class="headerlink" title="为什么要撰写README.md？"></a>为什么要撰写README.md？</h1><h2 id="用户体验"><a href="#用户体验" class="headerlink" title="用户体验"></a>用户体验</h2><p>README.md文档就像一个产品说明书，我们做的每个项目就是一个产品，用户拿到手中的时候并不清楚如何使用，不了解其组成部分。就像是你买的第一包泡面，泡面包装袋上没有写配料，生产场地，烹调方法。那就只能靠用户自己摸索使用，这对用户体验来说无疑是非常糟糕。</p>
-<h2 id="自我梳理"><a href="#自我梳理" class="headerlink" title="自我梳理"></a>自我梳理</h2><p>编写README.md可以梳理自身对项目的理解，同时也锻炼自己的文档编写能力。</p>
-<h1 id="README-md的编写方案"><a href="#README-md的编写方案" class="headerlink" title="README.md的编写方案"></a>README.md的编写方案</h1><p>参考自：<a target="_blank" rel="noopener" href="https://github.com/ParabolInc/parabol#readme">Parabol</a></p>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>在这里，对你的项目进行简要的概述，附上项目的demo演示图，或者项目展示图也可以。</p>
-<h2 id="Stack-Information"><a href="#Stack-Information" class="headerlink" title="Stack Information"></a>Stack Information</h2><p>技术栈，在这里写下你的项目开发需要的哪些技术信息，类似：</p>
-<table>
-<thead>
-<tr>
-<th>Concern</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>UI Framework</td>
-<td><a target="_blank" rel="noopener" href="https://facebook.github.io/react/">React</a></td>
-</tr>
-</tbody></table>
-<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h3><p>项目运行的先决必备条件</p>
-<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>安装步骤，以及在本地将项目跑起来代码的执行步骤</p>
-<h3 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h3><p>这里放一些开发过程中记录的文档，规则</p>
-<h3 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h3><p>部署上线的操作命令</p>
-<p>个人首次尝试：<a target="_blank" rel="noopener" href="https://github.com/AlexL0ng/imitation-jingdong#readme">imitation-jingdong</a></p>
 
       
     </div>
